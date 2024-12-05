@@ -74,7 +74,7 @@ python run_safety_editing_DDSC.py --editing_method DINM --early-exit-layers 0,1,
 ### SafeEdit (Classification Task)
 
 ```bash
-python classification.py --model-name huggyllama/llama-7b --early-exit-layers 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32 --data-path /mnt/sdb/zjk/DoLa/factor/data/dola+dinm_all.json --output-path output.json --num-gpu 1
+python classification.py --model-name huggyllama/llama-7b --early-exit-layers 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32 --data-path /mnt/sdb/zjk/DoLa/factor/data/ddsc.json --output-path output.json --num-gpu 1
 
 ```
 
