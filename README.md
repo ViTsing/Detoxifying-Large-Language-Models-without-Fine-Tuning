@@ -18,6 +18,7 @@ pip install -r requirements.txt
 
 > ❗️❗️Replace the trasformers already installed with transformers in the DDSC package
 Besides,if you intend to use Mistral, please update the `transformers` library to version 4.34.0 manually. You can use the following code: `pip install transformers==4.34.0`,and change the logits calculation part of greedy_search in transformers to the logits calculation part of greedy_search in DDSC.
+> 
 Dataset download(Classification Task and Generation Task)：https://1drv.ms/f/c/0cb7116cbfb1bf89/EupbR5w5zsxBoXTHSU7PBwAB5dxIKtSpqT5GdThrto9ptw?e=0bcS2i
 
 ---
@@ -57,14 +58,14 @@ The `--early-exit-layers` argument takes a string containing a sequence of layer
 | MODE-2                        | `0,2,28,31,32`      | **DDSC** with the last specified layer (i.e. `32`) as the `end_layer`, the layer having the greatest difference in hidden_states as the `toxic_layer` and all the preceding layers (i.e. `0,2,28,31`) as `candidate_hallucination_layers` and `candidate_safe_layers`. |layer output.       |
 
 
+
+```
 ### SafeEdit (Generation Task)
 
 #### LLaMA
 ```bash
 python run_safety_editing_DDSC.py --editing_method DINM --early-exit-layers 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32 --edited_model llama2-7b-chat --hparams_dir /mnt/sdb/zjk/EasyEdit_DDSC/hparams/DINM/LLaMA2-7B-Chat_PROMPT1.yaml --safety_classifier_dir /mnt/sdb/zjk/EasyEdit_ori/SafeEdit-Safety-Classifier --metrics_save_dir /mnt/sdb/zjk/EasyEdit_DDSC/LLAMA/test
-
 ```
-
 #### Mistral
 ```bash
 python run_safety_editing_DDSC.py --editing_method DINM --early-exit-layers 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32 --edited_model mistral-7b --hparams_dir /mnt/sdb/zjk/EasyEdit_DDSC/hparams/DINM/Mistral-7b-V0.1_PROMPT1.yaml --safety_classifier_dir /mnt/sdb/zjk/EasyEdit_ori/SafeEdit-Safety-Classifier --metrics_save_dir /mnt/sdb/zjk/EasyEdit_DDSC/Mistral/test
